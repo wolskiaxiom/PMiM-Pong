@@ -1,9 +1,17 @@
-int RSIZE=1; // rozmiar paletki
-int POINTS=3; // liczba żyć
 
-int R = 0; int C = 0; //położenie joysticka R (row) i C (column)
+//jesli zmieniamy predkosc pileczki, za pierwszym razem trzeba 2 razy dac joya w prawo lub w lewo w ciÄ…gu 80setnych (z tego co pamietam), a potem juz wystarczy raz, wszystko sie resetuje po 80setnych
+//jesli sie udalo zmienic tempo to zaswieca sie dwie kontrolki, jesli nie to jedna, zmiana tempa zostala troche utrudniona, zeby nie robic tego przez przypadek w trakcie gry
+//punkty pokazuja sie w 0 kolumnie, zycia czyli POINTS w 2
+//cykliczna zmiana wielkosci rakietki bedzie co 1 sekunde
+//pileczka porusza sie losowa az do 5 kolumny, potem juz bedzie sie poruszala swoim starym torem bo inaczej gra na RSIZE<4 nie bylaby praktycznie mozliwa
+//gdzies w programie jest ustawione, ze majac 5lv zmiana tempa jest juz zablokowana, mozna w ifie zamiast 5 dac 9 i wtedy bedzie ciagle dzialaĹ‚a (poziomow jest 8)
 
-int r_translate = 4; int c_translate = 7; // główny punkt rakietki (wszystkie inne są wyświetlane na podstawie tego, jesli ustawimy RSIZE=1 to rakietka wyswietli sie dokladnie w tym miejscu
+int RSIZE=1;
+int POINTS=3;
+
+int R = 0; int C = 0; //poĹ‚oĹĽenie joysticka R (row) i C (column)
+
+int r_translate = 4; int c_translate = 7; // gĹ‚Ăłwny punkt rakietki (wszystkie inne sÄ… wyĹ›wietlane na podstawie tego, jesli ustawimy RSIZE=1 to rakietka wyswietli sie dokladnie w tym miejscu
 int r_old = 4; // sluzy do czyszczenia starego polozenia rakietki (stary wiersz), zmienna c_old nie jest potrzebna, bo rakietka zawsze jest w 7 kolumnie
 
 int c_ball = 0; //poczatkowo pileczka znajduje sie w 0 kolumnie
@@ -12,8 +20,8 @@ int R_ball=1; // Przy rozpoczeciu gry, wiersz w ktorym pojowia sie pileczka jest
 int br_old; int bc_old=0; //sluza do czyszczenia starego polozenia pileczki ball row/column
 int lr=2; //=1 pileczka porusza sie w lewo, =2 pileczka porusza sie w prawo
 
-int SP_BALL=400; //predkosc pileczki, w tej chwili pileczka bedzie zmieniala polozenie co 400ms
-int sp_controller1=1;int sp_controller2=0; //pomocnicze zmienne, które zostaly wykorzystane do zabezpieczenia zmiany szybkosci pileczki, aby nie zmieniac jej przez przypadek w trakcie gry
+int SP_BALL=400; //predkosc pileczka, w tej chwili pileczka bedzie zmieniala polozenie co 400ms
+int sp_controller1=1;int sp_controller2=0; //pomocnicze zmienne, ktĂłre zostaly wykorzystane do zabezpieczenia zmiany szybkosci pileczki, aby nie zmieniac jej przez przypadek w trakcie gry
 unsigned long spch_timer = 0; //zmienna pomocnicza do zmiany tempa pileczki, speed change
 int led_sp=0; unsigned long led_sp_t=0; //gdy uda nam sie zmienic tempo zaswieca sie dwie diody (na gorze lub nadole w zaleznosci od tego czy przyspieszamy czy zwalniamy)
 
@@ -22,13 +30,14 @@ int vec; // wykorzystane do tego aby pileczka poruszala sie w losowym kierunku
 unsigned long now = 0; // https://forbot.pl/blog/kurs-arduino-ii-wielozadaniowosc-opoznienia-z-millis-id18418
 unsigned long last = 0; //wykorzystane do szybkosci przesuwania sie rakietki
 unsigned long b_last = 0; //wykorzystane do szybkosci przesuwania sie pileczki
-int bat[] = {-6,-6,-6,-6,-6}; // -6 ponieważ rakietka o rozmiarze 5 moze sie calkowicie znalezc poza planszą i jeden punkt by mial wartosc -5 (lub 5)
+int bat[] = {-6,-6,-6,-6,-6}; // -6 poniewaĹĽ rakietka o rozmiarze 5 moze sie calkowicie znalezc poza planszÄ… i jeden punkt by mial wartosc -5 (lub 5)
 
 //Poziomy
 int lvl=1; int score1=0; //aktualny lv i punkty
-int SP_LIMIT=400; // najwolniejsze mozliwe tempo pileczki, nie bedzie sie dalo zwolnic powyzej tej wartosci
+int SP_LIMIT=400; // najwolniejsze mozliwe tempo pileczki, nie bedzie sie dalo zwolnic powyzej tej wartosci, bo 
 
 //Rozmiar rakietki
+
 int R_SIZE; //bedzie przechowywala rozmiar pileczki, ktory moze sie rowzniez zmieniac w trakcie gry
 boolean firstgame=true; // wartosc RSIZE bedzie wykorzystana tylko przy pierwszym wczytaniu gry
 
@@ -72,7 +81,7 @@ void loop() {
          if(R_SIZE>=4)lc.setLed(0,r_old-2,c_translate,false);
          if(R_SIZE==5)lc.setLed(0,r_old+2,c_translate,false);
           
-          //WyĹ›wietlanie i ruchy paletkÄ…
+          //WyÄąâ€şwietlanie i ruchy paletkĂ„â€¦
           lc.setLed(0,r_translate,c_translate,true);
           if(R_SIZE>=2)lc.setLed(0,r_translate-1,c_translate,true);
           if(R_SIZE>=3)lc.setLed(0,r_translate+1,c_translate,true); 
@@ -89,7 +98,7 @@ void loop() {
           r_old=r_translate; //do wyczyszczenia starego polozenia
 
            
-          //wartosci dla nowego poĹ‚oĹĽenia rakietki
+          //wartosci dla nowego poÄąâ€šoÄąÄ˝enia rakietki
           if(r_translate<7+R_SIZE and r_translate>0-R_SIZE){
             if(r_temp>5) r_translate++; else if(r_temp<3) r_translate--;
           }
@@ -99,7 +108,7 @@ void loop() {
           if(newgame==0 and digitalRead(SW_pin)==HIGH)newgame=1;
           if(newgame==1 and digitalRead(SW_pin)==LOW)newgame=2;
           if(newgame==2){
-         //piĹ‚eczka
+         //piÄąâ€šeczka
          if(now - b_last >= SP_BALL){
           b_last=now;
           lc.setLed(0, br_old, bc_old, false);
@@ -107,7 +116,7 @@ void loop() {
           
       
           
-         //rysowanie piĹ‚eczki
+         //rysowanie piÄąâ€šeczki
           lc.setLed(0, r_ball, c_ball, true);
           
           br_old=r_ball; bc_old=c_ball;
@@ -124,9 +133,8 @@ void loop() {
           }
           
           
-          //wartoĹ›Ä‡ r dla nowego poĹ‚oĹĽenia piĹ‚eczki
-//          if(!((c_ball==5 or c_ball==6) and lr==2) and r_ball<=6 and r_ball>=1 and c_ball!=7){
-	if(c_ball==0 and r_ball<=6 and r_ball>=1 and c_ball!=7){		  
+          //wartoÄąâ€şĂ„â€ˇ r dla nowego poÄąâ€šoÄąÄ˝enia piÄąâ€šeczki
+          if(c_ball==0 and r_ball<=6 and r_ball>=1 and c_ball!=7){
               vec=random(-1,2);
               r_ball=vec+r_ball;
           }
@@ -142,11 +150,14 @@ void loop() {
             switch(random(0,5)){
               case 0:
                 r_ball++;
+                vec=1;
                 break;
                case 1:
                 r_ball--;
+                vec=-1;
                 break;
                case 2:
+               vec=0;
                 break;
                default:
                 r_ball=r_ball+vec; 
@@ -155,13 +166,13 @@ void loop() {
           else{
             r_ball=vec+r_ball;
           }
-          //wartoĹ›Ä‡ c dla nowego poĹ‚oĹĽenia piĹ‚eczki
+          //wartoÄąâ€şĂ„â€ˇ c dla nowego poÄąâ€šoÄąÄ˝enia piÄąâ€šeczki
           if(lr==2)c_ball++;
           if(lr==1)c_ball--;
           if(c_ball==0)lr=2;
           if(c_ball==7)lr=1;
          }
-         //Zmiana szybkości piłeczki
+         //Zmiana szybkoĹ›ci piĹ‚eczki
           C = analogRead(A0);
           int c_temp = map(C, 1023, 0, 0, 255);
           int r_temp = map(R, 1023, 0, 255, 0);
@@ -170,7 +181,7 @@ void loop() {
           if(c_temp==127 and r_temp== 132 and sp_controller2==1){sp_controller1=2;}
           if((now-spch_timer>=50 and now-spch_timer<=800) and sp_controller2==1 and sp_controller1==2){
             //ZWOLNIENIE    
-            if(c_temp==255 and r_temp== 132){
+            if(c_temp==0 and r_temp== 132){
               sp_controller2=0; sp_controller1=1;
               if(SP_BALL<=SP_LIMIT-25){
                 SP_BALL+=25;  
@@ -181,9 +192,9 @@ void loop() {
               }
             }
             //PRZYSPIESZENIE
-            else if(c_temp==0 and r_temp== 132){
+            else if(c_temp==255 and r_temp== 132){
               sp_controller2=0; sp_controller1=1;
-              if(lvl<5){
+              if(lvl<8){
                 SP_BALL-=25;
                 lc.setLed(0,0,3,true); lc.setLed(0,0,4,true); led_sp=1; led_sp_t=now ;
               }else{
@@ -192,7 +203,7 @@ void loop() {
               }
             }      
           }
-          //gaszenie ledów
+          //gaszenie ledĂłw
           if(led_sp==1 and now-led_sp_t>100){
             led_sp=0;
             lc.setLed(0,7,3,false); lc.setLed(0,7,4,false);
@@ -276,7 +287,7 @@ void loop() {
         lvl=1;score1=0;
         SP_LIMIT=400;
         POINTS=3;
-//        R_SIZE=RSIZE;
+        R_SIZE=RSIZE;
         sw_timer = 0;
         sw_c=0;
         SP_BALL_temp=SP_BALL;
@@ -285,8 +296,8 @@ void loop() {
   }
    
 }
-
 //FUNKCJE
+
 int points(int _r, int _bat[]){
   for(int i=0; i<5; i++){
     if(_r==_bat[i]) return 1;
