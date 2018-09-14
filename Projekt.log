@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6700 64-bit) (preloaded format=pdflatex 2018.6.14)  13 SEP 2018 16:18
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6700 64-bit) (preloaded format=pdflatex 2018.6.14)  14 SEP 2018 09:38
 entering extended mode
 **./Projekt.tex
 (Projekt.tex
@@ -196,19 +196,19 @@ Package: listings 2015/06/04 1.6 (Carsten Heinz)
  (Projekt.aux)
 \openout1 = `Projekt.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 137.
-LaTeX Font Info:    ... okay on input line 137.
-LaTeX Font Info:    Try loading font information for T1+lmr on input line 137.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 126.
+LaTeX Font Info:    ... okay on input line 126.
+LaTeX Font Info:    Try loading font information for T1+lmr on input line 126.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\t1lmr.fd"
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -310,80 +310,75 @@ G,.JBIG2,.JB2,.eps]
 
 \c@lstlisting=\count107
 
-Overfull \hbox (17.62482pt too wide) in paragraph at lines 139--139
-[][] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 139--139
+Underfull \hbox (badness 10000) in paragraph at lines 128--128
 
  []
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 139.
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 128.
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 139.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 128.
 
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 139
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 128
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 139
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 128
 .
 
 ("C:\Program Files\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <12> on input line 139.
+(Font)              <12> on input line 128.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 139.
+(Font)              <8> on input line 128.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 139.
+(Font)              <6> on input line 128.
  [1
 
 {C:/Users/Brak_Element/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
 <uno.jpg, id=9, 451.6875pt x 451.6875pt>
 File: uno.jpg Graphic file (type jpg)
 <use uno.jpg>
-Package pdftex.def Info: uno.jpg  used on input line 146.
+Package pdftex.def Info: uno.jpg  used on input line 135.
 (pdftex.def)             Requested size: 443.57848pt x 443.60184pt.
  [1 <./uno.jpg>]
 <matrix.jpg, id=14, 576.65437pt x 331.99031pt>
 File: matrix.jpg Graphic file (type jpg)
 <use matrix.jpg>
-Package pdftex.def Info: matrix.jpg  used on input line 152.
+Package pdftex.def Info: matrix.jpg  used on input line 141.
 (pdftex.def)             Requested size: 443.57848pt x 255.38509pt.
 <joystick.jpg, id=15, 752.8125pt x 470.50781pt>
 File: joystick.jpg Graphic file (type jpg)
 <use joystick.jpg>
-Package pdftex.def Info: joystick.jpg  used on input line 158.
+Package pdftex.def Info: joystick.jpg  used on input line 147.
 (pdftex.def)             Requested size: 443.57848pt x 277.2454pt.
  [2 <./matrix.jpg> <./joystick.jpg>]
 <schemat-plytka-matryca_bb.png, id=19, 212.795pt x 382.228pt>
 File: schemat-plytka-matryca_bb.png Graphic file (type png)
 <use schemat-plytka-matryca_bb.png>
-Package pdftex.def Info: schemat-plytka-matryca_bb.png  used on input line 167.
+Package pdftex.def Info: schemat-plytka-matryca_bb.png  used on input line 156.
 
 (pdftex.def)             Requested size: 341.32639pt x 613.03893pt.
  [3 <./schemat-plytka-matryca_bb.png>]
 <schemat_plytka-joystick.png, id=25, 220.022pt x 371.789pt>
 File: schemat_plytka-joystick.png Graphic file (type png)
 <use schemat_plytka-joystick.png>
-Package pdftex.def Info: schemat_plytka-joystick.png  used on input line 174.
+Package pdftex.def Info: schemat_plytka-joystick.png  used on input line 163.
 (pdftex.def)             Requested size: 362.8259pt x 613.03893pt.
 <schemat_bb.png, id=26, 224.84pt x 539.08067pt>
 File: schemat_bb.png Graphic file (type png)
 <use schemat_bb.png>
-Package pdftex.def Info: schemat_bb.png  used on input line 181.
+Package pdftex.def Info: schemat_bb.png  used on input line 170.
 (pdftex.def)             Requested size: 255.69243pt x 613.03893pt.
  [4 <./schemat_plytka-joystick.png>] [5 <./schemat_bb.png>] [6]
 ("C:\Program Files\MiKTeX 2.9\tex\latex\listings\lstlang1.sty"
@@ -393,17 +388,17 @@ File: lstlang1.sty 2015/06/04 1.6 listings language file
 File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 235.
+(Font)              <10> on input line 224.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 235.
+(Font)              <7> on input line 224.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 235.
+(Font)              <5> on input line 224.
  [7] [8] [9]
 [10] [11] [12] (Projekt.aux) ) 
 Here is how much of TeX's memory you used:
  5349 strings out of 492973
  71333 string characters out of 3135911
- 413517 words of memory out of 3000000
+ 415506 words of memory out of 3000000
  9119 multiletter control sequences out of 15000+200000
  60367 words of font info for 46 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -419,7 +414,7 @@ type1/public/lm/lmr12.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lm
 r17.pfb><C:/Program Files/MiKTeX 2.9/fonts/type1/public/lm/lmr6.pfb><C:/Program
  Files/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Program Files/MiKTeX 2.9
 /fonts/type1/public/lm/lmsy10.pfb>
-Output written on Projekt.pdf (13 pages, 1017650 bytes).
+Output written on Projekt.pdf (13 pages, 1018325 bytes).
 PDF statistics:
  97 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

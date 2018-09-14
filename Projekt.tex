@@ -63,25 +63,14 @@
 \newcommand{\linia}{\rule{\linewidth}{0.4mm}}
 
 \renewcommand{\maketitle}{\begin{titlepage}
-
-
-
     \noindent\linia
-
     \begin{center}
-
       \LARGE \textsc{\@title}
-
          \end{center}
-
      \linia
-
-    \vspace{0.5cm}
-    
+    \vspace{0.5cm}    
         \vspace*{1cm}
-
     \begin{center}\Large
-
     Grupa numer 16\\
 
 Informatyka\\
@@ -215,8 +204,8 @@ Biblioteka $LedControl.h$ jest biblioteką dla sterowników MAX7221 i MAX7219, k
 
 \begin{lstlisting}[style=CStyle]
 
-int RSIZE=1; // rozmiar paletki
-int POINTS=3; // liczba żyć
+int RSIZE=3; // rozmiar paletki
+int POINTS=5; // liczba żyć
 
 int R = 0; int C = 0; //położenie joysticka R (row) i C (column)
 int r_translate = 4; int c_translate = 7; // główny punkt rakietki (wszystkie inne są wyświetlane na podstawie tego, jesli ustawimy RSIZE=1 to rakietka wyswietli sie dokladnie w tym miejscu
@@ -300,6 +289,7 @@ void loop() {
           int r_temp = map(R, 1023, 0, 7, 0);
           r_old=r_translate; //do wyczyszczenia starego polozenia
            
+           
           //wartosci dla nowego położenia rakietki
           if(r_translate<7+R_SIZE and r_translate>0-R_SIZE){
             if(r_temp>5) r_translate++; else if(r_temp<3) r_translate--;
@@ -321,7 +311,7 @@ void loop() {
           //punkty
           if(c_ball==7) {
             if(points(r_ball, bat)==1){score1++;}
-            else{
+            else{	//dla straty punktu 
               POINTS-=1;
               showPoints(POINTS);
               showScore(score1);
@@ -387,7 +377,7 @@ void loop() {
             //PRZYSPIESZENIE
             else if(c_temp==0 and r_temp== 132){
               sp_controller2=0; sp_controller1=1;
-              if(lvl<5){
+              if(lvl<9){
                 SP_BALL-=25;
                 lc.setLed(0,0,3,true); lc.setLed(0,0,4,true); led_sp=1; led_sp_t=now ;
               }else{
@@ -483,7 +473,7 @@ void loop() {
 }
 
 //FUNKCJE
-int points(int _r, int _bat[]){
+int points(int _r, int _bat[]){ //funcja dodająca punkt za poprawne odbicie piłeczki
   for(int i=0; i<5; i++){
     if(_r==_bat[i]) return 1;
   }
@@ -498,7 +488,7 @@ int showPoints(int _points){
   }
 }
 
-int showScore(int value){
+int showScore(int value){ //funkcja wyświetlająca sumę punktów zdobytych w grze
   int tab[8]={0,0,0,0,0,0,0,0};
   for(int i=7; i>=0; i--){
     if(value%2==1){
